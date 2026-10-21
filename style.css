@@ -241,3 +241,14 @@ h3{font-size:16px}
 @media(min-width:1600px){.water-poster .poster-type{left:calc((100% - 1240px)/2);top:225px}}
 @media(max-width:1000px) and (min-width:761px){.water-poster .poster-type{top:225px}}
 @media(max-width:760px){.water-poster .poster-type{left:5%;right:5%;top:245px}}
+
+/* Genuine OFL condensed black italic, self-hosted for the home title only. */
+@font-face{font-family:'Barlow Condensed';src:url('assets/fonts/BarlowCondensed-BlackItalic.ttf') format('truetype');font-weight:900;font-style:italic;font-display:swap}
+.title-art text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-synthesis:none;letter-spacing:-.055em;word-spacing:-.0323em}
+/* 1.9x the previous fish size, with a wider but still compact formation. */
+.sardine{left:calc(var(--fish-x) * 1.65);top:calc(var(--fish-y) * 1.75);width:calc(var(--fish-size) * 2.85);height:calc(var(--fish-size) * 1.425)}
+.fish-response{width:245px;height:115px;right:8%;top:73%}
+.fish-response .fish-school{width:245px;height:115px}
+@media(max-width:760px){.fish-response{right:7%;top:62%;width:245px;height:115px}}
+.title-art,.surface-reflection svg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-synthesis:none;letter-spacing:-.055em;word-spacing:-.0323em}
+.title-art mask{font-family:'Barlow Condensed',sans-serif;letter-spacing:-.055em;word-spacing:-.0323em}
