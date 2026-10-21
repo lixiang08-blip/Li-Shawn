@@ -152,3 +152,48 @@ h3{font-size:16px}
 *,*:before,*:after{animation:none!important;transition:none!important}
 }
 .arrow-icon{display:inline-block;width:1em;height:1em;vertical-align:-.15em;flex-shrink:0}
+
+/* Ocean poster: original procedural light texture, staggered type, refracted reflection. */
+.water-poster{height:980px;min-height:0;max-height:none;background:#0354c7;padding-top:25px;padding-bottom:24px;display:block}
+.water-poster .hero-meta{font-size:9px;line-height:1.7;align-items:start}
+.water-poster .hero-meta>span:last-child{text-align:right}
+.ocean-surface{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#0879d9 0%,#0669db 30%,#0053bf 55%,#003b78 100%);overflow:hidden}
+.caustics{position:absolute;inset:-6%;background-image:url('assets/water-caustics.svg');background-size:100% 100%;mix-blend-mode:screen;pointer-events:none;will-change:transform;animation:surface-drift 19s ease-in-out infinite alternate}
+.caustics-back{opacity:.48;transform:scale(1.2) rotate(-9deg);mask-image:linear-gradient(180deg,#0004,black 55%)}
+.caustics-front{inset:20% -15% -30%;opacity:.68;background-size:75% 90%;transform:perspective(700px) rotateX(38deg) rotate(-12deg) scale(1.2);animation-name:surface-current;animation-duration:24s;mask-image:linear-gradient(180deg,transparent,#0009 20%,black)}
+.surface-glint{position:absolute;inset:0;background:linear-gradient(165deg,transparent 32%,#0879d940 46%,#b8e4ff17 46.4%,transparent 47%,transparent 65%,#003b7870 100%)}
+.poster-note{position:absolute;left:var(--gutter);top:140px;font-size:9px;letter-spacing:2px;display:flex;align-items:center;gap:12px;color:#d8f1ff}
+.pink-mark{display:inline-block;width:8px;height:8px;background:#ff4c9f;transform:rotate(-12deg)}
+.poster-type{position:absolute;top:205px;left:var(--gutter);right:var(--gutter);z-index:2;transform:rotate(-5deg)}
+.water-poster h1,.reflection-type{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-style:italic;font-size:clamp(90px,15.9vw,235px);line-height:.76;letter-spacing:-.085em}
+.poster-type span{display:block;white-space:nowrap}
+.poster-name{margin-left:-.025em;position:relative;z-index:2}
+.poster-period{display:inline!important;color:#ff4c9f}
+.poster-digital{margin-left:20%;font-size:.94em;position:relative;z-index:2}
+.poster-media{margin-left:7%;font-size:1.12em;position:relative;z-index:2}
+.poster-star{display:inline-block!important;font-size:.3em;vertical-align:top;line-height:1.4;margin-left:.4em;color:#ff4c9f;font-style:normal;letter-spacing:0}
+.title-reflection{position:absolute;top:calc(100% + 9px);left:0;width:100%;height:200px;overflow:hidden;opacity:.5;mask-image:linear-gradient(black, #0008 30%,transparent 90%);pointer-events:none;filter:url('#reflection-warp')}
+.reflection-type{transform:scaleY(-.64);transform-origin:center 50%;position:relative;top:-24%;color:#b8e4ff}
+.waterline{position:absolute;left:-5%;top:64%;width:110%;height:100px;z-index:3;transform:rotate(-5deg);background:repeating-linear-gradient(178deg,transparent 0 14px,#b8e4ff28 15px,transparent 16px 26px);mask-image:linear-gradient(90deg,transparent,#0008 30%,black 60%,transparent);pointer-events:none;filter:url('#reflection-warp');opacity:.7}
+.vertical-note{position:absolute;right:20px;top:42%;writing-mode:vertical-rl;font-size:8px;letter-spacing:3px;color:#b8e4ff}
+.poster-caption{position:absolute;bottom:97px;left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;align-items:end;gap:30px;z-index:5}
+.poster-caption>p{font-size:12px;line-height:1.8;max-width:290px;color:white}
+.poster-link{display:flex;gap:40px;align-items:center;font-size:10px;font-weight:bold;letter-spacing:1.5px;border-bottom:1px solid #b8e4ff99;padding:15px 0}
+.poster-link svg{font-size:25px}.poster-link:hover{color:#b8e4ff}.water-poster a:focus-visible{outline-color:#fff}
+.water-poster .hero-bottom{position:absolute;bottom:24px;left:var(--gutter);right:var(--gutter);color:var(--light);font-size:8px;letter-spacing:1.6px}
+.pointer-ripple{position:absolute;z-index:4;width:120px;height:45px;border:1px solid #b8e4ff;border-radius:50%;box-shadow:0 0 0 8px #b8e4ff10,0 0 0 15px #b8e4ff30;opacity:0;pointer-events:none}
+.water-paused .caustics{animation-play-state:paused}
+@keyframes surface-drift{from{transform:scale(1.2) rotate(-9deg) translate(-1%,0)}to{transform:scale(1.26) rotate(-6deg) translate(1%,2%)}}
+@keyframes surface-current{from{transform:perspective(700px) rotateX(38deg) rotate(-12deg) scale(1.2) translate(-1%,0)}to{transform:perspective(700px) rotateX(34deg) rotate(-9deg) scale(1.25) translate(2%,2%)}}
+@media(min-width:1600px){.water-poster{height:1080px}.poster-type{top:220px;max-width:1500px;left:calc((100% - 1450px)/2)}.water-poster h1,.reflection-type{font-size:250px}}
+@media(max-width:1000px) and (min-width:761px){.water-poster{height:850px}.poster-type{top:230px}.poster-caption{bottom:90px}}
+@media(max-width:760px){.water-poster{height:810px;min-height:0;padding-top:22px}.water-poster .hero-meta{font-size:7px;letter-spacing:1px}.poster-note{top:125px;font-size:7px;letter-spacing:1.3px}.poster-type{top:245px;left:20px;right:20px;transform:rotate(-7deg)}.water-poster h1,.reflection-type{font-size:17vw;letter-spacing:-.085em}.poster-digital{margin-left:15%;font-size:1.08em}.poster-media{font-size:1.28em;margin-left:3%}.poster-star{font-size:.27em}.title-reflection{height:140px;top:calc(100% + 10px)}.reflection-type{top:-18%}.waterline{top:56%;height:80px}.poster-caption{bottom:93px;flex-direction:column;align-items:start;gap:18px}.poster-caption>p{font-size:11px;max-width:270px}.poster-link{font-size:9px;gap:40px;padding:12px 0}.water-poster .hero-bottom{font-size:6px;letter-spacing:1px}.vertical-note{right:9px;top:24%;font-size:6px;letter-spacing:2px}.caustics{background-size:auto 100%;will-change:auto}.caustics-back{display:none}.caustics-front{inset:0 -30% -10%;opacity:.7;background-size:auto 100%}.pointer-ripple{display:none}}
+@media(prefers-reduced-motion:reduce){.caustics{animation:none;will-change:auto}.pointer-ripple{display:none}}
+
+/* Keep the nearest reflected line legible before it dissolves into water. */
+.reflection-type{top:0;transform:scaleY(-.72);transform-origin:center center}
+.reflection-type .poster-name,.reflection-type .poster-digital{display:none}
+.title-reflection{opacity:.62}
+.poster-star{font-family:Arial,Helvetica,sans-serif;font-weight:400;transform:rotate(-15deg);font-size:.45em;line-height:1}
+.caustics-back{opacity:.25}.caustics-front{opacity:.45}
+@media(max-width:760px){.reflection-type{top:0}.title-reflection{height:130px}.caustics-front{opacity:.5}.poster-star{font-size:.4em}}

@@ -20,29 +20,22 @@
 </nav>
 </header>
 <main id="main">
-<section class="hero" aria-labelledby="hero-title">
-<div class="water-lines" aria-hidden="true">
+<section class="hero water-poster" aria-labelledby="hero-title">
+<svg class="water-definitions" aria-hidden="true" width="0" height="0"><defs>
+<filter id="reflection-warp" x="-10%" y="-30%" width="120%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.075" numOctaves="2" seed="8" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="0.4 0.8"/></filter>
+</defs></svg>
+<div class="ocean-surface" aria-hidden="true"><div class="caustics caustics-back"></div><div class="caustics caustics-front"></div><div class="surface-glint"></div></div>
+<div class="hero-meta"><span>SMC / ART 10C</span><span>VISUAL EXPLORATIONS<br>VOL. 01 — DIGITAL MEDIA</span></div>
+<div class="poster-note"><span class="pink-mark"></span> IMAGE / FORM / EXPERIMENT</div>
+<div class="poster-type">
+<h1 id="hero-title" aria-label="LI XIANG — DIGITAL MEDIA"><span class="poster-name">LI XIANG<span class="poster-period">.</span></span><span class="poster-digital">DIGITAL</span><span class="poster-media">MEDIA<span class="poster-star" aria-hidden="true">+</span></span></h1>
+<div class="title-reflection" aria-hidden="true"><div class="reflection-type"><span class="poster-name">LI XIANG.</span><span class="poster-digital">DIGITAL</span><span class="poster-media">MEDIA<span class="poster-star">+</span></span></div></div>
 </div>
-<div class="hero-meta">
-<span>SMC / ART 10C</span>
-<span>DIGITAL PORTFOLIO — 01</span>
-</div>
-<div class="hero-content">
-<p class="eyebrow">EXPLORATIONS IN IMAGE & FORM</p>
-<h1 id="hero-title">LI XIANG<span class="title-dash">—</span>
-<span class="hero-title-small">DIGITAL MEDIA<span class="title-dot">.</span>
-</span>
-</h1>
-<p class="hero-subtitle">Visual Experiments / Graphic Design / Digital Media</p>
-<a class="pill-link" href="#selected-work">Explore the work <span><svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5 19 19M5 19h14V5"/></svg></span>
-</a>
-</div>
-<div class="hero-bottom">
-<span>AN ONGOING COLLECTION</span>
-<span>SCROLL TO DISCOVER <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M5 13l7 7 7-7"/></svg></span>
-</div>
-<span class="hero-orbit" aria-hidden="true">
-</span>
+<div class="waterline" aria-hidden="true"></div>
+<div class="pointer-ripple" aria-hidden="true"></div>
+<span class="vertical-note" aria-hidden="true">SURFACE / DEPTH / REFLECTION</span>
+<div class="poster-caption"><p>Visual Experiments / Graphic Design / Digital Media</p><a class="poster-link" href="#selected-work">ENTER THE COLLECTION <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5 19 19M5 19h14V5"/></svg></a></div>
+<div class="hero-bottom"><span>LI XIANG — DIGITAL MEDIA</span><span>SCROLL TO SURFACE ↓</span></div>
 </section>
 <section class="work-section" id="selected-work">
 <div class="section-heading">
@@ -108,5 +101,6 @@
 <span>Santa Monica College · ART 10C</span>
 <a href="#main">Back to top <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V4M5 11l7-7 7 7"/></svg></a>
 </footer>
+<script src="water.js" defer></script>
 </body>
 </html>
