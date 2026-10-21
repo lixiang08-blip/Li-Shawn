@@ -216,3 +216,22 @@ h3{font-size:16px}
 @media(max-width:760px){.fish-school{top:63%;right:10%;transform-origin:right center;animation-name:school-current-mobile}}
 @keyframes school-current-mobile{0%,100%{transform:translate(-8px,0) scale(.85)}25%{transform:translate(0,-4px) scale(.85)}50%{transform:translate(8px,0) scale(.85)}75%{transform:translate(0,4px) scale(.85)}}
 @media(prefers-reduced-motion:reduce){.fish-school,.sardine,.fish-tail{animation:none!important}.fish-school{transform:none}}
+
+/* Static interlocking title: shared SVG glyphs are also the intersection masks. */
+.water-poster .poster-type{top:195px;left:4%;right:4%;max-width:1400px;transform:none}
+.water-poster h1{font-size:inherit;line-height:0;text-shadow:none;margin:0}
+.title-art{display:block;width:100%;height:auto;overflow:visible}
+.title-art text,.title-art mask,.surface-reflection{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-style:italic;letter-spacing:-14px}
+.title-intersections{filter:brightness(var(--pink-brightness,1));transition:filter .4s ease}
+.surface-reflection{position:absolute;left:12%;right:8%;top:-35px;height:205px;z-index:0;opacity:.18;pointer-events:none;overflow:hidden;mask-image:radial-gradient(ellipse at 50% 25%,#000c,transparent 75%)}
+.surface-reflection>svg{width:100%;height:100%;transform:skewX(-12deg) scaleY(.85);animation:reflected-current 19s ease-in-out infinite alternate}
+.reflection-ripple{position:absolute;left:50%;top:40%;width:100px;height:18px;border:1px solid #b8f4ff;border-radius:50%;opacity:0;transform:translate(-50%,-50%);pointer-events:none}
+.sun-rays{translate:var(--ray-x,0px) 0;rotate:var(--ray-angle,0deg);filter:brightness(var(--ray-light,1));transition:translate 1s ease,rotate 1s ease,filter 1s ease}
+.fish-response{position:absolute;top:73%;right:9%;width:155px;height:80px;z-index:1;pointer-events:none;translate:var(--fish-away-x,0px) var(--fish-away-y,0px);transition:translate 1.8s cubic-bezier(.2,.65,.3,1)}
+.fish-response .fish-school{top:0;right:0;width:155px;height:80px;z-index:auto}
+.sardine{width:calc(var(--fish-size) * 1.5);height:calc(var(--fish-size) * .75)}
+@keyframes reflected-current{from{transform:skewX(-12deg) scaleY(.85) translate(-4px,0)}to{transform:skewX(-8deg) scaleY(.88) translate(5px,4px)}}
+@media(min-width:1600px){.water-poster .poster-type{left:calc((100% - 1400px)/2);top:200px}}
+@media(max-width:1000px) and (min-width:761px){.water-poster .poster-type{top:235px}}
+@media(max-width:760px){.water-poster .poster-type{left:3%;right:3%;top:245px}.surface-reflection{top:-5px;left:4%;right:0;height:150px}.fish-response{top:64%;right:9%;width:155px}.fish-response .fish-school{animation-name:school-current-mobile}.surface-reflection>svg{animation-duration:24s}}
+@media(prefers-reduced-motion:reduce){.surface-reflection>svg{animation:none}.sun-rays,.fish-response{translate:none;rotate:none;filter:none}.title-intersections{filter:none}.reflection-ripple{display:none}}

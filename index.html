@@ -28,7 +28,11 @@
   <div class="depth-particles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="bubble-field"><i></i><i></i><i></i><i></i><i></i></div>
 </div>
-<div class="fish-school" aria-hidden="true">
+<div class="surface-reflection" aria-hidden="true">
+<svg viewBox="0 0 1200 560" preserveAspectRatio="none"><defs><filter id="surface-refraction" x="-15%" y="-30%" width="130%" height="160%"><feTurbulence type="fractalNoise" baseFrequency=".009 .065" numOctaves="2" seed="7" result="ripple"/><feDisplacementMap id="reflection-displacement" in="SourceGraphic" in2="ripple" scale="32" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="1.5 2"/></filter></defs><g filter="url(#surface-refraction)"><use href="#title-composition" transform="translate(0 560) scale(1 -1)"/></g></svg>
+<div class="reflection-ripple"></div>
+</div>
+<div class="fish-response" aria-hidden="true"><div class="fish-school" aria-hidden="true">
   <svg class="sardine" style="--fish-x:10px;--fish-y:26px;--fish-size:9px;--fish-opacity:0.55;--fish-time:7s;--fish-delay:-2s" viewBox="0 0 16 8"><polygon class="fish-body" points="4,4 10,0 16,4 10,8"/><polygon class="fish-tail" points="5,4 0,0 0,8"/></svg>
   <svg class="sardine" style="--fish-x:31px;--fish-y:19px;--fish-size:11px;--fish-opacity:0.75;--fish-time:8s;--fish-delay:-5s" viewBox="0 0 16 8"><polygon class="fish-body" points="4,4 10,0 16,4 10,8"/><polygon class="fish-tail" points="5,4 0,0 0,8"/></svg>
   <svg class="sardine" style="--fish-x:52px;--fish-y:30px;--fish-size:12px;--fish-opacity:0.9;--fish-time:9s;--fish-delay:-4s" viewBox="0 0 16 8"><polygon class="fish-body" points="4,4 10,0 16,4 10,8"/><polygon class="fish-tail" points="5,4 0,0 0,8"/></svg>
@@ -39,11 +43,28 @@
   <svg class="sardine" style="--fish-x:69px;--fish-y:42px;--fish-size:13px;--fish-opacity:0.9;--fish-time:10s;--fish-delay:-8s" viewBox="0 0 16 8"><polygon class="fish-body" points="4,4 10,0 16,4 10,8"/><polygon class="fish-tail" points="5,4 0,0 0,8"/></svg>
   <svg class="sardine" style="--fish-x:90px;--fish-y:48px;--fish-size:10px;--fish-opacity:0.65;--fish-time:7s;--fish-delay:-4s" viewBox="0 0 16 8"><polygon class="fish-body" points="4,4 10,0 16,4 10,8"/><polygon class="fish-tail" points="5,4 0,0 0,8"/></svg>
   <svg class="sardine" style="--fish-x:112px;--fish-y:38px;--fish-size:12px;--fish-opacity:0.8;--fish-time:9s;--fish-delay:-6s" viewBox="0 0 16 8"><polygon class="fish-body" points="4,4 10,0 16,4 10,8"/><polygon class="fish-tail" points="5,4 0,0 0,8"/></svg>
-</div>
+</div></div>
 <div class="hero-meta"><span>SMC / ART 10C</span><span>VISUAL EXPLORATIONS<br>VOL. 01 — DIGITAL MEDIA</span></div>
 <div class="poster-note"><span class="pink-mark"></span> IMAGE / FORM / EXPERIMENT</div>
 <div class="poster-type">
-<h1 id="hero-title" aria-label="LI XIANG — DIGITAL MEDIA"><span class="poster-name">LI XIANG<span class="poster-period">.</span></span><span class="poster-digital">DIGITAL</span><span class="poster-media">MEDIA<span class="poster-star" aria-hidden="true">+</span></span></h1>
+<h1 id="hero-title" aria-label="LI XIANG — DIGITAL MEDIA">
+<svg class="title-art" viewBox="0 0 1200 560" aria-hidden="true" focusable="false">
+<defs>
+  <text id="word-name" x="28" y="200" transform="rotate(-9 470 170)" font-size="210">LI XIANG</text>
+  <text id="word-digital" x="185" y="304" transform="rotate(5 650 270)" font-size="222">DIGITAL</text>
+  <text id="word-media" x="85" y="463" transform="rotate(-8 500 420)" font-size="265">MEDIA</text>
+  <mask id="name-mask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1400" height="800"><use href="#word-name" fill="white"/></mask>
+  <mask id="digital-mask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1400" height="800"><use href="#word-digital" fill="white"/></mask>
+  <mask id="media-mask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1400" height="800"><use href="#word-media" fill="white"/></mask>
+  <g id="title-composition">
+    <g fill="#fff"><use href="#word-name"/><use href="#word-digital"/><use href="#word-media"/></g>
+    <g class="title-intersections" fill="#FF1493"><use href="#word-name" mask="url(#digital-mask)"/><use href="#word-digital" mask="url(#media-mask)"/><use href="#word-name" mask="url(#media-mask)"/></g>
+  </g>
+</defs>
+<use href="#title-composition"/>
+<path fill="#FF1493" d="M1050 119h20v20h-20z M1055 402h14v23h23v14h-23v23h-14v-23h-23v-14h23z"/>
+</svg>
+</h1>
 </div>
 <span class="vertical-note" aria-hidden="true">SUBMERGED / LIGHT / REFRACTION</span>
 <div class="poster-caption"><p>Visual Experiments / Graphic Design / Digital Media</p><a class="poster-link" href="#selected-work">ENTER THE COLLECTION <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5 19 19M5 19h14V5"/></svg></a></div>
