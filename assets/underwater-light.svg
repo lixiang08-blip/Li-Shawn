@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" preserveAspectRatio="none">
+  <!-- Soft, uneven light volumes: no polygonal cones or hard clipped edges. -->
+  <defs>
+    <radialGradient id="ray"><stop stop-color="#a6f8ff" stop-opacity=".46"/><stop offset=".35" stop-color="#53eaff" stop-opacity=".25"/><stop offset=".7" stop-color="#00cfff" stop-opacity=".09"/><stop offset="1" stop-color="#00cfff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="source"><stop stop-color="#c3fbff" stop-opacity=".58"/><stop offset=".5" stop-color="#00cfff" stop-opacity=".18"/><stop offset="1" stop-color="#00cfff" stop-opacity="0"/></radialGradient>
+    <filter id="soft-current" x="-25%" y="-15%" width="150%" height="130%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".007 .012" numOctaves="1" seed="12" result="current"/><feDisplacementMap in="SourceGraphic" in2="current" scale="45" xChannelSelector="R" yChannelSelector="G"/></filter>
+  </defs>
+  <g filter="url(#soft-current)">
+    <ellipse cx="395" cy="210" rx="95" ry="650" transform="rotate(25 395 210)" fill="url(#ray)"/>
+    <ellipse cx="610" cy="140" rx="70" ry="630" transform="rotate(10 610 140)" fill="url(#ray)"/>
+    <ellipse cx="820" cy="220" rx="105" ry="680" transform="rotate(-18 820 220)" fill="url(#ray)"/>
+    <ellipse cx="1005" cy="100" rx="55" ry="480" transform="rotate(-26 1005 100)" fill="url(#ray)"/>
+  </g>
+  <ellipse cx="610" cy="0" rx="600" ry="230" fill="url(#source)"/>
+</svg>
