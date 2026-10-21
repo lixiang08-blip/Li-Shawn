@@ -252,3 +252,7 @@ h3{font-size:16px}
 @media(max-width:760px){.fish-response{right:7%;top:62%;width:245px;height:115px}}
 .title-art,.surface-reflection svg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-synthesis:none;letter-spacing:-.055em;word-spacing:-.0323em}
 .title-art mask{font-family:'Barlow Condensed',sans-serif;letter-spacing:-.055em;word-spacing:-.0323em}
+
+/* Leave clearance above the collection heading for desktop/mobile navigation. */
+#projects{scroll-margin-top:88px}
+@media(max-width:760px){#projects{scroll-margin-top:72px}}
