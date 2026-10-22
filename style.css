@@ -279,3 +279,7 @@ h3{font-size:16px}
 .pdf-contents{font-size:12px;line-height:1.7;color:#536371;margin-top:7px}
 @media(max-width:760px){.project-showcase{padding-top:30px;padding-bottom:50px}.showcase-heading{margin:36px 0 28px}.showcase-summary{grid-template-columns:1fr;gap:28px;margin-top:26px}.showcase-pdf{justify-self:start;max-width:100%}.pdf-button{max-width:100%}.preview-pending{min-height:260px}.showcase-description{font-size:14px}}
 .preview-pending{width:100%;min-width:0}
+
+/* One original selection wedge, confined behind the Project 1 heading. */
+.project-showcase .showcase-heading h1{position:relative;isolation:isolate}
+.project-showcase .showcase-heading h1::before{content:"";position:absolute;z-index:-1;left:0;bottom:-10px;width:95%;height:clamp(54px,7vw,100px);background:#ff1493;opacity:.3;clip-path:polygon(0 92%,100% 0,82% 100%);pointer-events:none}
