@@ -288,3 +288,14 @@ h3{font-size:16px}
 .project-cover{display:flex;align-items:center;justify-content:center;padding:56px 24px 42px;background:#f3f7fb;color:var(--deep)}
 .project-cover>img{width:100%;height:100%;min-height:0;object-fit:contain}
 .showcase-pdf a.pdf-button:hover{background:var(--ocean)}
+
+/* Pointer-only enhancement. JS enables cursor:none only while the triangle is shown. */
+.portfolio-cursor{display:none;position:fixed;left:0;top:0;width:20px;height:20px;z-index:2147483647;pointer-events:none!important;opacity:.93}
+.portfolio-cursor>span{display:block;width:20px;height:20px;background:#ff1493;clip-path:polygon(100% 0,0 55%,40% 70%);transform-origin:20px 0;transition:transform 170ms ease,background-color 170ms ease;pointer-events:none}
+@media(hover:hover) and (pointer:fine){.portfolio-cursor.is-visible{display:block}.custom-cursor-active,.custom-cursor-active *{cursor:none!important}}
+.portfolio-cursor.is-hover>span{transform:rotate(10deg) scale(1.3)}
+.portfolio-cursor.is-title>span{background:#a5e8ff}
+.portfolio-cursor.is-pressed>span{transform:scale(.8);transition-duration:100ms}
+.portfolio-cursor.is-hover.is-pressed>span{transform:rotate(10deg) scale(.8)}
+@media(prefers-reduced-motion:reduce){.portfolio-cursor>span{transition:none}}
+@media(forced-colors:active){.portfolio-cursor>span{background:Highlight}}
