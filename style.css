@@ -1,80 +1,301 @@
-/* ==========================================================================
-   Li Xiang's Portfolio - Modern Digital Art Exhibition Stylesheet
-   ========================================================================== */
+:root{--ocean:#006bff;--deep:#003dbb;--light:#00cfff;--white:#fff;--dark:#101820;--paper:#f4f8fb;--line:#d9e3eb;--gutter:clamp(24px,6vw,100px)}
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:30px}
+body{margin:0;background:var(--white);color:var(--dark);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:3px solid var(--ocean);outline-offset:6px}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p{margin:0}
+button,a{-webkit-tap-highlight-color:transparent}
+.skip-link{position:fixed;top:-80px;left:20px;background:white;color:var(--deep);padding:16px;z-index:10}
+.skip-link:focus{top:12px}
+.site-header{height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);background:var(--deep);color:white}
+.wordmark{font-size:27px;font-weight:900;letter-spacing:-2px}
+.wordmark span{font-size:10px;letter-spacing:1.8px;margin-left:12px;vertical-align:middle}
+nav{display:flex;gap:38px;font-size:13px}
+nav a{padding:8px 0;border-bottom:1px solid transparent}
+nav a:hover,nav a[aria-current=page]{border-color:var(--light)}
+nav span{margin-left:10px;color:var(--light)}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.5}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--ocean);color:white;min-height:670px;min-height:min(780px,calc(100svh - 88px));padding:30px var(--gutter) 25px;display:flex;flex-direction:column;justify-content:space-between}
+.hero-meta,.hero-bottom{display:flex;justify-content:space-between;font-size:9px;letter-spacing:2px;gap:20px;position:relative;z-index:2}
+.hero-meta{color:var(--light)}
+.hero-content{position:relative;z-index:2;padding:65px 0 70px}
+.hero-content>.eyebrow{margin-bottom:24px;color:var(--light)}
+h1{font-weight:900;letter-spacing:-.065em;line-height:.92}
+.hero h1{font-size:clamp(76px,12.8vw,186px);font-style:italic;letter-spacing:-.075em}
+.title-dash{display:inline-block;font-weight:400;margin-left:20px;color:var(--light)}
+.hero-title-small{display:block;font-size:.73em;letter-spacing:-.065em}
+.title-dot{color:var(--light)}
+.hero-subtitle{font-size:clamp(11px,1.3vw,16px);line-height:1.7;margin-top:30px;letter-spacing:.4px}
+.pill-link{display:inline-flex;gap:48px;align-items:center;border:1px solid #ffffff80;border-radius:40px;padding:14px 22px;font-size:12px;margin-top:30px;transition:background .2s,color .2s}
+.pill-link:hover{background:white;color:var(--deep)}
+.pill-link span{font-size:20px}
+.hero-orbit{position:absolute;width:62vw;height:62vw;border:1px solid #b8e4ff50;border-radius:50%;top:-26vw;right:-15vw;z-index:-1;box-shadow:0 0 0 55px #b8e4ff08,0 0 0 110px #b8e4ff08,0 0 0 165px #b8e4ff06}
+.water-lines{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.water-lines:before,.water-lines:after{content:"";position:absolute;width:120%;height:110%;border-radius:44%;right:-65%;top:10%;transform:rotate(-30deg);border:1px solid #ffffff55;box-shadow:0 0 0 28px #b8e4ff12,0 0 0 29px #ffffff25,0 0 0 75px #003b781a,0 0 0 76px #ffffff20;animation:drift 16s ease-in-out infinite alternate}
+.water-lines:after{width:65%;height:70%;top:70%;right:8%;opacity:.5;animation-delay:-7s}
+@keyframes drift{to{transform:translate3d(15px,-20px,0) rotate(-25deg)}
 }
+.work-section,.process-section{padding:88px var(--gutter) 76px}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+.section-heading .eyebrow{color:var(--ocean);margin-bottom:16px}
+h2{font-size:clamp(32px,4vw,54px);letter-spacing:-2px;line-height:1.05}
+.blue{color:var(--ocean)}
+.section-heading>p{font-size:12px;color:#536371;line-height:1.8}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.work-image{aspect-ratio:1.24;position:relative;overflow:hidden;transition:transform .3s}
+.project-placeholder{background:var(--deep);color:white}
+.image-label{position:absolute;left:25px;top:24px;font-size:8px;letter-spacing:1.7px;z-index:2}
+.abstract-scene{position:absolute;inset:0;overflow:hidden;background:linear-gradient(155deg,#003b78 0%,#075cba 50%,#0879d9 50%,#b8e4ff 140%)}
+.abstract-scene i{position:absolute;left:53%;top:15%;height:110%;width:34%;background:linear-gradient(90deg,#b8e4ff70,#ffffff0a);transform:skew(-24deg);border-left:1px solid #b8e4ff80}
+.abstract-scene b{position:absolute;width:65%;aspect-ratio:1;border:1px solid #b8e4ff60;border-radius:50%;top:0;left:-30%;box-shadow:0 0 0 28px #b8e4ff0a,0 0 0 29px #b8e4ff20,0 0 0 60px #b8e4ff06}
+.abstract-scene em{position:absolute;left:0;right:0;bottom:23%;height:1px;background:#b8e4ff50;transform:rotate(-14deg)}
+.placeholder-title{position:absolute;left:25px;bottom:38px;font-size:clamp(32px,5vw,72px);font-weight:900;font-style:italic;letter-spacing:-3px;line-height:.9}
+.placeholder-title>span{display:block;font-size:10px;font-style:normal;letter-spacing:3px;line-height:1.5;margin-top:18px}
+.image-corner{position:absolute;right:20px;bottom:18px;font-size:26px;transition:transform .25s}
+.work-card:hover .image-corner{transform:translate(3px,-3px)}
+.exercise-image{background:#edf2f5;display:flex;align-items:center;justify-content:center;padding:56px 35px 40px}
+.exercise-image img{width:auto;max-width:90%;max-height:100%;object-fit:contain;transition:transform .3s}
+.work-card:hover .exercise-image img{transform:scale(1.025)}
+.card-caption{display:flex;justify-content:space-between;align-items:start;gap:15px;margin-top:21px}
+.card-caption .eyebrow{font-size:8px;color:var(--ocean);margin-bottom:9px}
+h3{font-size:18px;font-weight:600;letter-spacing:-.6px}
+.status{white-space:nowrap;font-size:9px;padding:7px 10px;border:1px solid var(--line);border-radius:20px;color:#536371}
+.text-link{display:inline-flex;gap:32px;align-items:center;font-size:12px;border-bottom:1px solid #9eafbc;padding-bottom:8px}
+.work-section>.text-link{margin-top:42px}
+.course-note{margin:0 var(--gutter);border-top:1px solid var(--line);padding:44px 0 55px;display:flex;justify-content:space-between;gap:25px;align-items:start}
+.course-note>.eyebrow{color:var(--ocean)}
+.course-note>p:not(.eyebrow){font-size:clamp(18px,2vw,28px);letter-spacing:-.6px;line-height:1.45;font-weight:400}
+.course-note strong{font-weight:500}
+.course-note>span{font-size:42px;color:var(--ocean)}
+.site-footer{padding:28px var(--gutter);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:8px;letter-spacing:1px;color:#526371}
+.site-footer>a:first-child{font-weight:700;color:var(--deep)}
+.page-intro{background:var(--ocean);color:white;padding:65px var(--gutter) 70px}
+.page-intro .eyebrow{color:var(--light);margin-bottom:32px}
+.page-intro h1{font-size:clamp(64px,9vw,124px);font-style:italic}
+.page-intro h1>span{color:var(--light)}
+.page-intro>p:last-child{font-size:13px;line-height:1.7;margin-top:30px}
+.collection{padding-top:60px}
+.collection h2{font-size:28px;letter-spacing:-1px}
+.detail-intro{padding:45px var(--gutter) 60px;background:var(--paper)}
+.detail-intro>.text-link{margin-bottom:52px}
+.detail-meta{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:1.5px;margin-bottom:24px;color:var(--deep)}
+.detail-intro h1{font-size:clamp(55px,8vw,116px);line-height:1;font-style:italic;color:var(--deep)}
+.detail-intro h1>span{display:block;color:var(--ocean)}
+.detail-lead{margin-top:28px;font-size:14px;line-height:1.7;color:#536371}
+.project-banner{margin:0;min-height:420px;position:relative;display:flex;align-items:center;padding:70px var(--gutter);overflow:hidden;color:white}
+.project-banner>p{position:relative;font-size:clamp(32px,5.5vw,76px);font-weight:900;font-style:italic;line-height:1;letter-spacing:-2px}
+.project-banner>p>span{color:var(--light)}
+.banner-label{position:absolute;bottom:25px;left:var(--gutter);font-size:8px;letter-spacing:2px}
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px 60px;margin-top:55px}
+.process-grid article{border-top:1px solid var(--line);padding-top:20px}
+.process-number{font-size:11px;color:var(--ocean)}
+.process-grid h3{font-size:24px;margin-top:22px}
+.process-grid p{font-size:13px;line-height:1.8;color:#536371;margin-top:15px;max-width:350px}
+.next-work{margin:0 var(--gutter);padding:30px 0 45px;border-top:1px solid var(--line)}
+.next-work>.eyebrow{color:var(--ocean)}
+.next-work>a{display:flex;justify-content:space-between;font-size:clamp(22px,3vw,40px);letter-spacing:-1px;margin-top:20px;gap:20px}
+.next-work>a>span{color:var(--ocean)}
+.artwork-stage{margin:0;padding:60px var(--gutter) 25px;background:#eef3f6}
+.artwork-stage>img{width:auto;max-width:100%;max-height:80vh;margin:auto;object-fit:contain}
+.artwork-stage figcaption{display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:1px;margin-top:35px;color:#536371}
+.exercise-note{padding:65px var(--gutter);display:grid;grid-template-columns:1fr 2fr;gap:30px}
+.exercise-note>.eyebrow{color:var(--ocean)}
+.exercise-note h2{font-size:32px;letter-spacing:-1px}
+.exercise-note div>p{margin-top:20px;font-size:14px;line-height:1.8;color:#536371;max-width:550px}
+@media(min-width:1500px){.hero-content{max-width:1440px}
+.work-section,.process-section{max-width:1640px;margin:auto}
+}
+@media(max-width:760px){.site-header{height:72px}
+.wordmark span{display:none}
+nav{gap:24px}
+.hero{min-height:650px;min-height:calc(88svh - 72px);padding-top:22px}
+.hero-meta,.hero-bottom{font-size:7px;letter-spacing:1px}
+.hero-content{padding:75px 0}
+.hero h1{font-size:clamp(66px,15vw,110px)}
+.hero-title-small{font-size:.69em}
+.title-dash{margin-left:8px}
+.hero-subtitle{max-width:260px;font-size:12px}
+.hero-content>.eyebrow{font-size:8px;letter-spacing:1.4px}
+.water-lines:before{right:-70%;width:170%}
+.hero-orbit{width:110vw;height:110vw;top:-35vw;right:-55vw}
+.work-section,.process-section{padding:55px var(--gutter)}
+.section-heading{align-items:start;flex-direction:column;gap:18px}
+.section-heading>p{font-size:12px}
+.work-grid{grid-template-columns:1fr;gap:38px}
+.placeholder-title{font-size:clamp(46px,12vw,80px)}
+.card-caption{gap:8px}
+h3{font-size:16px}
+.status{font-size:8px}
+.course-note{flex-wrap:wrap;position:relative;padding:30px 0}
+.course-note>.eyebrow{width:100%}
+.course-note>span{position:absolute;right:0;top:30px;font-size:28px}
+.site-footer{flex-wrap:wrap;font-size:8px;line-height:1.7}
+.site-footer>a:first-child{width:100%}
+.page-intro{padding-top:45px}
+.page-intro h1{font-size:68px}
+.detail-intro{padding-top:30px;padding-bottom:40px}
+.detail-intro>.text-link{margin-bottom:38px}
+.detail-intro h1{font-size:clamp(43px,10.2vw,75px)}
+.detail-meta{font-size:8px;letter-spacing:1px}
+.project-banner{min-height:320px}
+.process-grid{grid-template-columns:1fr;gap:30px;margin-top:30px}
+.process-grid h3{margin-top:15px}
+.exercise-note{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}
+.artwork-stage{padding-top:35px;padding-bottom:25px}
+.artwork-stage figcaption{font-size:7px;letter-spacing:.5px}
+.next-work>a{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+*,*:before,*:after{animation:none!important;transition:none!important}
+}
+.arrow-icon{display:inline-block;width:1em;height:1em;vertical-align:-.15em;flex-shrink:0}
 
-body {
-  min-height: 100vh;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: #0b0f19;
-  background-image: radial-gradient(circle at 50% 25%, #1e293b 0%, #0b0f19 100%);
-  color: #f8fafc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1.5rem;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Underwater poster. The overhead surface and downward light establish depth;
+   all atmospheric layers stay behind the white type and navigation. */
+.water-poster{height:980px;min-height:0;max-height:none;background:#006bff;padding-top:25px;padding-bottom:24px;display:block}
+.water-poster .hero-meta{font-size:9px;line-height:1.7;align-items:start;color:white}
+.water-poster .hero-meta>span:last-child{text-align:right}
+.ocean-surface{position:absolute;inset:0;z-index:-2;overflow:hidden;background:radial-gradient(ellipse at 54% -12%,#00cfff 0%,#00b7ff 18%,transparent 54%),radial-gradient(ellipse at 92% 38%,#0085ff 0%,transparent 60%),linear-gradient(180deg,#008eff 0%,#006bff 48%,#0054e9 78%,#003dbb 100%);pointer-events:none}
+.surface-ceiling{position:absolute;left:-12%;top:-95px;width:124%;height:410px;overflow:hidden;mask-image:radial-gradient(ellipse 68% 65% at 54% 15%,black 15%,#000b 43%,transparent 78%);animation:ceiling-swell 17s ease-in-out infinite alternate}
+.surface-texture{position:absolute;inset:-20%;background:url("assets/water-caustics.svg") center/100% 100% no-repeat;mask-image:radial-gradient(ellipse at 50% 50%,black 20%,#0009 45%,transparent 70%);mix-blend-mode:screen;transform:perspective(550px) rotateX(48deg) scale(1.5);animation:ceiling-current 21s ease-in-out infinite alternate}
+.sun-rays{position:absolute;inset:-5% -8% -10%;background:url("assets/underwater-light.svg") center top/100% 100% no-repeat;transform-origin:55% 0;animation:light-sway 22s ease-in-out infinite alternate}
+.caustics-front{position:absolute;inset:12% -10% -10%;background:url("assets/water-caustics.svg") center/110% 110%;mix-blend-mode:screen;opacity:.14;mask-image:radial-gradient(ellipse at 0% 45%,black,transparent 45%),radial-gradient(ellipse at 100% 65%,#000b,transparent 42%);animation:caustic-drift 23s ease-in-out infinite alternate}
+.poster-note{position:absolute;left:var(--gutter);top:140px;font-size:9px;letter-spacing:2px;display:flex;align-items:center;gap:12px;color:white}
+.pink-mark{display:inline-block;width:11px;height:11px;background:#ff1493;transform:rotate(-12deg)}
+.poster-type{position:absolute;top:205px;left:var(--gutter);right:var(--gutter);z-index:2;transform:rotate(-5deg)}
+.water-poster h1{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-style:italic;font-size:clamp(90px,15.9vw,235px);line-height:.76;letter-spacing:-.085em;text-shadow:2px 3px 0 #003dbb}
+.poster-type span{display:block;white-space:nowrap}
+.poster-name{margin-left:-.025em;position:relative}
+.poster-period{display:inline!important;color:#ff1493;text-shadow:none}
+.poster-digital{margin-left:20%;font-size:.94em;position:relative}
+.poster-media{margin-left:7%;font-size:1.12em;position:relative}
+/* A small cyan offset at the letter edge, never a second mirrored title. */
+.poster-digital::after{content:'DIGITAL';position:absolute;inset:0;transform:translate(3px,2px);color:#00cfff;z-index:-1;clip-path:polygon(0 42%,100% 42%,100% 51%,0 51%);animation:type-refract 11s ease-in-out infinite alternate}
+.poster-star{display:inline-block!important;font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:.45em;vertical-align:top;line-height:1;margin-left:.4em;color:#ff1493;font-style:normal;letter-spacing:0;transform:rotate(-15deg);text-shadow:none}
+.vertical-note{position:absolute;right:20px;top:42%;writing-mode:vertical-rl;font-size:8px;letter-spacing:3px;color:white}
+.poster-caption{position:absolute;bottom:97px;left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;align-items:end;gap:30px;z-index:5}
+.poster-caption>p{font-size:12px;line-height:1.8;max-width:290px;color:white}
+.poster-link{display:flex;gap:40px;align-items:center;font-size:10px;font-weight:bold;letter-spacing:1.5px;border-bottom:2px solid #00cfff;padding:15px 0}
+.poster-link svg{font-size:25px}.poster-link:hover{color:#00cfff}.water-poster a:focus-visible{outline-color:#fff}
+.water-poster .hero-bottom{position:absolute;bottom:24px;left:var(--gutter);right:var(--gutter);color:white;font-size:8px;letter-spacing:1.6px}
+.bubble-field,.depth-particles{position:absolute;inset:0}
+.bubble-field i{position:absolute;left:9%;bottom:-5%;width:7px;height:9px;border:1px solid #96efff;border-radius:50%;animation:bubble-rise 24s linear infinite;animation-delay:-5s}
+.bubble-field i:nth-child(2){left:88%;width:4px;height:5px;animation-duration:29s;animation-delay:-19s}
+.bubble-field i:nth-child(3){left:79%;width:9px;height:11px;animation-duration:32s;animation-delay:-11s}
+.bubble-field i:nth-child(4){left:17%;width:3px;height:4px;animation-duration:27s;animation-delay:-22s}
+.bubble-field i:nth-child(5){left:95%;width:5px;height:6px;animation-duration:35s;animation-delay:-3s}
+.depth-particles i{position:absolute;left:8%;top:36%;width:2px;height:2px;background:#9defff;border-radius:50%;animation:particle-drift 19s ease-in-out infinite alternate}
+.depth-particles i:nth-child(2){left:85%;top:32%;animation-delay:-9s}
+.depth-particles i:nth-child(3){left:68%;top:82%;animation-delay:-4s}
+.depth-particles i:nth-child(4){left:26%;top:76%;animation-delay:-13s}
+.depth-particles i:nth-child(5){left:93%;top:68%;animation-delay:-6s}
+.depth-particles i:nth-child(6){left:49%;top:19%;animation-delay:-15s}
+.water-paused *, .water-paused *::after{animation-play-state:paused!important}
+@keyframes ceiling-swell{from{transform:rotate(-7deg) translateY(-5px) scaleY(1)}to{transform:rotate(-5deg) translateY(8px) scaleY(1.06)}}
+@keyframes ceiling-current{from{transform:perspective(550px) rotateX(48deg) scale(1.5) translateX(-1%)}to{transform:perspective(550px) rotateX(45deg) scale(1.55) translateX(2%)}}
+@keyframes light-sway{from{transform:rotate(-3deg);opacity:.8}to{transform:rotate(3deg);opacity:1}}
+@keyframes caustic-drift{from{transform:translate(-2%,0) rotate(-3deg)}to{transform:translate(2%,-2%) rotate(2deg)}}
+@keyframes type-refract{from{transform:translate(2px,1px)}to{transform:translate(5px,-1px)}}
+@keyframes bubble-rise{0%{transform:translate(0,0);opacity:0}8%{opacity:.7}90%{opacity:.5}100%{transform:translate(20px,-1050px);opacity:0}}
+@keyframes particle-drift{from{transform:translate(0,0);opacity:.4}to{transform:translate(12px,-20px);opacity:.8}}
+@media(min-width:1600px){.water-poster{height:1080px}.poster-type{top:220px;max-width:1500px;left:calc((100% - 1450px)/2)}.water-poster h1{font-size:250px}}
+@media(max-width:1000px) and (min-width:761px){.water-poster{height:850px}.poster-type{top:230px}.poster-caption{bottom:90px}}
+@media(max-width:760px){.water-poster{height:810px;min-height:0;padding-top:22px}.water-poster .hero-meta{font-size:7px;letter-spacing:1px}.poster-note{top:125px;font-size:7px;letter-spacing:1.3px}.poster-type{top:245px;left:20px;right:20px;transform:rotate(-7deg)}.water-poster h1{font-size:17vw;letter-spacing:-.085em}.poster-digital{margin-left:15%;font-size:1.08em}.poster-media{font-size:1.28em;margin-left:3%}.poster-star{font-size:.4em}.poster-caption{bottom:93px;flex-direction:column;align-items:start;gap:18px}.poster-caption>p{font-size:11px;max-width:270px}.poster-link{font-size:9px;gap:40px;padding:12px 0}.water-poster .hero-bottom{font-size:6px;letter-spacing:1px}.vertical-note{right:9px;top:24%;font-size:6px;letter-spacing:2px}.surface-ceiling{top:-55px;height:255px;width:150%;left:-25%}.surface-texture{background-size:450px 280px}.sun-rays{inset:-3% -45% -5%}.bubble-field i:nth-child(n+4),.depth-particles i:nth-child(n+4){display:none}.caustics-front{background-size:auto 100%;opacity:.16}.poster-digital::after{animation:none}}
+@media(prefers-reduced-motion:reduce){.water-poster *,.water-poster *::after{animation:none!important;transition:none!important}.bubble-field{display:none}}
 
-.portfolio-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 640px;
-  width: 100%;
-}
+/* A single small school. Each original fish is exactly two flat polygons. */
+.fish-school{position:absolute;top:73%;right:10%;width:138px;height:70px;z-index:1;pointer-events:none;animation:school-current 38s ease-in-out infinite}
+.sardine{position:absolute;left:var(--fish-x);top:var(--fish-y);width:var(--fish-size);height:calc(var(--fish-size) / 2);fill:#ff1493;opacity:var(--fish-opacity);overflow:visible;animation:fish-spacing var(--fish-time) ease-in-out var(--fish-delay) infinite alternate}
+.fish-tail{transform-origin:5px 4px;animation:tail-flex 2.8s ease-in-out var(--fish-delay) infinite alternate}
+@keyframes school-current{0%,100%{transform:translate(-14px,0)}25%{transform:translate(0,-6px)}50%{transform:translate(14px,0)}75%{transform:translate(0,6px)}}
+@keyframes fish-spacing{from{transform:translate(-2px,-1px) rotate(-2deg)}to{transform:translate(3px,2px) rotate(2deg)}}
+@keyframes tail-flex{from{transform:scaleX(.85)}to{transform:scaleX(1)}}
+@media(max-width:760px){.fish-school{top:63%;right:10%;transform-origin:right center;animation-name:school-current-mobile}}
+@keyframes school-current-mobile{0%,100%{transform:translate(-8px,0) scale(.85)}25%{transform:translate(0,-4px) scale(.85)}50%{transform:translate(8px,0) scale(.85)}75%{transform:translate(0,4px) scale(.85)}}
+@media(prefers-reduced-motion:reduce){.fish-school,.sardine,.fish-tail{animation:none!important}.fish-school{transform:none}}
 
-.portfolio-header {
-  margin-bottom: 2rem;
-}
+/* Static interlocking title: shared SVG glyphs are also the intersection masks. */
+.water-poster .poster-type{top:195px;left:4%;right:4%;max-width:1400px;transform:none}
+.water-poster h1{font-size:inherit;line-height:0;text-shadow:none;margin:0}
+.title-art{display:block;width:100%;height:auto;overflow:visible}
+.title-art text,.title-art mask,.surface-reflection{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-style:italic;letter-spacing:-.05em}
+.title-intersections{filter:brightness(var(--pink-brightness,1));transition:filter .4s ease}
+.surface-reflection{position:absolute;left:12%;right:8%;top:-35px;height:205px;z-index:0;opacity:.18;pointer-events:none;overflow:hidden;mask-image:radial-gradient(ellipse at 50% 25%,#000c,transparent 75%)}
+.surface-reflection>svg{width:100%;height:100%;transform:skewX(-12deg) scaleY(.85);animation:reflected-current 19s ease-in-out infinite alternate}
+.reflection-ripple{position:absolute;left:50%;top:40%;width:100px;height:18px;border:1px solid #b8f4ff;border-radius:50%;opacity:0;transform:translate(-50%,-50%);pointer-events:none}
+.sun-rays{translate:var(--ray-x,0px) 0;rotate:var(--ray-angle,0deg);filter:brightness(var(--ray-light,1));transition:translate 1s ease,rotate 1s ease,filter 1s ease}
+.fish-response{position:absolute;top:73%;right:9%;width:155px;height:80px;z-index:1;pointer-events:none;translate:var(--fish-away-x,0px) var(--fish-away-y,0px);transition:translate 1.8s cubic-bezier(.2,.65,.3,1)}
+.fish-response .fish-school{top:0;right:0;width:155px;height:80px;z-index:auto}
+.sardine{width:calc(var(--fish-size) * 1.5);height:calc(var(--fish-size) * .75)}
+@keyframes reflected-current{from{transform:skewX(-12deg) scaleY(.85) translate(-4px,0)}to{transform:skewX(-8deg) scaleY(.88) translate(5px,4px)}}
+@media(min-width:1600px){.water-poster .poster-type{left:calc((100% - 1400px)/2);top:200px}}
+@media(max-width:1000px) and (min-width:761px){.water-poster .poster-type{top:235px}}
+@media(max-width:760px){.water-poster .poster-type{left:3%;right:3%;top:245px}.surface-reflection{top:-5px;left:4%;right:0;height:150px}.fish-response{top:64%;right:9%;width:155px}.fish-response .fish-school{animation-name:school-current-mobile}.surface-reflection>svg{animation-duration:24s}}
+@media(prefers-reduced-motion:reduce){.surface-reflection>svg{animation:none}.sun-rays,.fish-response{translate:none;rotate:none;filter:none}.title-intersections{filter:none}.reflection-ripple{display:none}}
 
-h1 {
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-}
+/* Compact three-row composition: common tilt, straight baselines, shallow overlap. */
+.water-poster .poster-type{top:215px;left:6%;right:8%;max-width:1240px}
+@media(min-width:1600px){.water-poster .poster-type{left:calc((100% - 1240px)/2);top:225px}}
+@media(max-width:1000px) and (min-width:761px){.water-poster .poster-type{top:225px}}
+@media(max-width:760px){.water-poster .poster-type{left:5%;right:5%;top:245px}}
 
-.art-card {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(0, 0, 0, 0.05),
-    0 0 45px rgba(236, 72, 153, 0.18);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* Genuine OFL condensed black italic, self-hosted for the home title only. */
+@font-face{font-family:'Barlow Condensed';src:url('assets/fonts/BarlowCondensed-BlackItalic.ttf') format('truetype');font-weight:900;font-style:italic;font-display:swap}
+.title-art text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-synthesis:none;letter-spacing:-.055em;word-spacing:-.0323em}
+/* 1.9x the previous fish size, with a wider but still compact formation. */
+.sardine{left:calc(var(--fish-x) * 1.65);top:calc(var(--fish-y) * 1.75);width:calc(var(--fish-size) * 2.85);height:calc(var(--fish-size) * 1.425)}
+.fish-response{width:245px;height:115px;right:8%;top:73%}
+.fish-response .fish-school{width:245px;height:115px}
+@media(max-width:760px){.fish-response{right:7%;top:62%;width:245px;height:115px}}
+.title-art,.surface-reflection svg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-synthesis:none;letter-spacing:-.055em;word-spacing:-.0323em}
+.title-art mask{font-family:'Barlow Condensed',sans-serif;letter-spacing:-.055em;word-spacing:-.0323em}
 
-.art-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 
-    0 35px 65px -15px rgba(0, 0, 0, 0.75),
-    0 0 0 1px rgba(255, 255, 255, 0.25),
-    0 0 60px rgba(236, 72, 153, 0.28);
-}
+/* Leave clearance above the collection heading for desktop/mobile navigation. */
+#projects{scroll-margin-top:88px}
+@media(max-width:760px){#projects{scroll-margin-top:72px}}
 
-.artwork-image {
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  object-fit: contain;
-}
+/* Project 1: artwork-first presentation, scoped away from the home Hero. */
+.project-showcase{max-width:1500px;margin:auto;padding:42px var(--gutter) 80px}
+.showcase-heading{margin:48px 0 38px}
+.showcase-heading .eyebrow{color:var(--ocean);margin-bottom:18px}
+.showcase-heading h1{font-size:clamp(42px,6vw,86px);line-height:1.02;letter-spacing:-.055em;color:var(--deep)}
+.showcase-heading h1>span{display:block;color:var(--ocean)}
+.showcase-preview{margin:0;background:#f3f7fb}
+.showcase-preview>img{width:100%;height:auto;object-fit:contain}
+.preview-pending{min-height:280px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:1px solid #d9e3eb;color:var(--deep);text-align:center;padding:30px}
+.preview-marker{color:#ff1493;font-size:48px;font-weight:300;line-height:1}
+.preview-pending>p{font-size:11px;font-weight:bold;letter-spacing:2px}
+.preview-pending>span:last-child{font-size:13px;color:#536371}
+.showcase-summary{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:36px;align-items:start}
+.showcase-description{font-size:15px;line-height:1.8;max-width:520px;color:#536371}
+.showcase-pdf{max-width:420px;justify-self:end}
+.pdf-button{font:700 12px Arial,Helvetica,sans-serif;letter-spacing:1px;display:inline-flex;align-items:center;justify-content:space-between;gap:36px;min-height:54px;padding:16px 24px;background:var(--deep);color:white;border:0;border-bottom:3px solid #ff1493}
+.pdf-button:disabled{cursor:not-allowed}
+.pdf-button svg{width:20px;height:20px}
+#pdf-status{font-size:12px;font-weight:bold;color:var(--deep);margin-top:14px}
+.pdf-contents{font-size:12px;line-height:1.7;color:#536371;margin-top:7px}
+@media(max-width:760px){.project-showcase{padding-top:30px;padding-bottom:50px}.showcase-heading{margin:36px 0 28px}.showcase-summary{grid-template-columns:1fr;gap:28px;margin-top:26px}.showcase-pdf{justify-self:start;max-width:100%}.pdf-button{max-width:100%}.preview-pending{min-height:260px}.showcase-description{font-size:14px}}
+.preview-pending{width:100%;min-width:0}
+
+/* One original selection wedge, confined behind the Project 1 heading. */
+.project-showcase .showcase-heading h1{position:relative;isolation:isolate}
+.project-showcase .showcase-heading h1::before{content:"";position:absolute;z-index:-1;left:0;bottom:-10px;width:95%;height:clamp(54px,7vw,100px);background:#ff1493;opacity:.3;clip-path:polygon(0 92%,100% 0,82% 100%);pointer-events:none}
+
+/* Real Project 1 cover; preserve the existing card and the full poster ratio. */
+.project-cover{display:flex;align-items:center;justify-content:center;padding:56px 24px 42px;background:#f3f7fb;color:var(--deep)}
+.project-cover>img{width:100%;height:100%;min-height:0;object-fit:contain}
+.showcase-pdf a.pdf-button:hover{background:var(--ocean)}
+
+/* Pointer-only enhancement. JS enables cursor:none only while the triangle is shown. */
+.portfolio-cursor{display:none;position:fixed;left:0;top:0;width:20px;height:20px;z-index:2147483647;pointer-events:none!important;opacity:.93}
+.portfolio-cursor>span{display:block;width:20px;height:20px;background:#ff1493;clip-path:polygon(100% 0,0 55%,40% 70%);transform-origin:20px 0;transition:transform 170ms ease,background-color 170ms ease;pointer-events:none}
+@media(hover:hover) and (pointer:fine){.portfolio-cursor.is-visible{display:block}.custom-cursor-active,.custom-cursor-active *{cursor:none!important}}
+.portfolio-cursor.is-hover>span{transform:rotate(10deg) scale(1.3)}
+.portfolio-cursor.is-title>span{background:#a5e8ff}
+.portfolio-cursor.is-pressed>span{transform:scale(.8);transition-duration:100ms}
+.portfolio-cursor.is-hover.is-pressed>span{transform:rotate(10deg) scale(.8)}
+@media(prefers-reduced-motion:reduce){.portfolio-cursor>span{transition:none}}
+@media(forced-colors:active){.portfolio-cursor>span{background:Highlight}}
